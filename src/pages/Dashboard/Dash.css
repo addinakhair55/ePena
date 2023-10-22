@@ -1,0 +1,30 @@
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    background-color: #333;
+    color: #fff;
+    width: 200px;
+    padding: 20px;
+  }
+
+  main {
+    flex: 1;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+
+  .content {
+    display: flex;
+  }
+  

@@ -1,0 +1,70 @@
+.color{
+    color: #37517E !important;
+}
+
+.backg-color{
+    background-color: #37517E !important;
+}
+
+.text-style{
+    font-family: "Jost" !important;
+}
+
+.text{
+    font-family: "Roboto" !important;
+}
+
+.icon-logo:nth-child(1){
+    padding: 5px 10px !important;
+    color: #fff !important;
+    position: absolute !important;
+}
+
+.icon-logo:hover{
+    color: #00eaff !important;
+}
+
+.input {
+    margin-top: 1rem !important;
+  }
+  
+  .input::file-selector-button {
+    font-weight: bold !important;
+    color: #fff !important;
+    padding: 0.5em !important;
+    background-color: #0D6EFD !important;
+    border-radius: 3px !important;
+  }
+
+.icon{
+    width: 43px !important;
+    height: 43px !important;
+    background-color: #3498db !important;
+    border-radius: 50px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 22px !important;
+    margin: 0 0.2rem !important;
+}
+
+.icon-container{
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+.error-icon::before {
+    content: "✗";
+    color: #dc3545;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.is-invalid {
+    border-color: #dc3545; /* Ubah warna batas input yang tidak valid */
+  }
+  
+  .invalid-feedback {
+    color: #dc3545 !important; /* Ubah warna teks pesan kesalahan */
+    font-size: 14px !important; /* Ubah ukuran teks pesan kesalahan sesuai kebutuhan */
+  }
+  
