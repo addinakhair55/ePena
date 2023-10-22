@@ -6,7 +6,6 @@ import "../Pendaftaran/Pendaftaran.css"
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-
 function AddPendaftaran() {
     const navigate = useNavigate()
     const dispatch = useDispatch();

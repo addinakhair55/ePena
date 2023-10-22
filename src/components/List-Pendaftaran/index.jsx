@@ -26,7 +26,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
   
       if (response.status === 200) {
         console.log('Pendaftaran updated successfully!');
-        setEditIndex(-1); // Reset edit mode
+        setEditIndex(-1);
       } else {
         console.error('API request was successful, but the response status is not 200:', response.status);
       }
@@ -34,9 +34,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
       console.error('An error occurred while updating data:', error);
     }
   }
-  
 
-  // DELETE | HAPUS
   async function handleDelete(index) {
     const pendaftaranId = pendaftarans[index].id;
 

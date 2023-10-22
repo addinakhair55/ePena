@@ -1,9 +1,8 @@
 import { useState } from "react";
 import "./CreatePendaftaran.css";
-import { useDispatch } from "react-redux";
 import axios from "axios";
 
-function CreatePendaftaran({ addPendaftaran }) {
+function CreatePendaftaran({addPendaftaran}) {
 
   const [formData, setFormData] = useState({
     namaLengkap: '',
@@ -81,8 +80,6 @@ function CreatePendaftaran({ addPendaftaran }) {
     });
   };
 
-  const dispatch = useDispatch();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
   
@@ -106,7 +103,8 @@ function CreatePendaftaran({ addPendaftaran }) {
       const response = await axios.post("https://651e38bb44a3a8aa4767e444.mockapi.io/pendaftaran", newPendaftaran);
   
       if (response.status === 201) {
-        dispatch(addPendaftaran(newPendaftaran));
+        // dispatch({ type: 'ADD_PENDAFTARAN', newPendaftaran });
+        addPendaftaran(newPendaftaran)
         setFormData({
           namaLengkap: "",
           jenisKelamin: "",
