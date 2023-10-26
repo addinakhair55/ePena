@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ImageDetail from "../image/detail.svg"
+import ImageEdit from "../image/pencil-square.svg"
+import ImageDelete from "../image/trash.svg"
+import ImageSave from "../image/floppy.svg"
+import ImageX from "../image/x.svg"
+import "./ListPendaftaran.css"
 
 function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
   const [editFormData, setEditFormData] = useState({});
@@ -22,7 +28,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
       }
   
       const pendaftaranId = pendaftarans[index].id;
-      const response = await axios.put(`https://651e38bb44a3a8aa4767e444.mockapi.io/products/${pendaftaranId}`, pendaftaranToUpdate);
+      const response = await axios.put(`https://651e38bb44a3a8aa4767e444.mockapi.io/pendaftaran/${pendaftaranId}`, pendaftaranToUpdate);
   
       if (response.status === 200) {
         console.log('Pendaftaran updated successfully!');
@@ -35,6 +41,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
     }
   }
 
+  // DELETE || HAPUS
   async function handleDelete(index) {
     const pendaftaranId = pendaftarans[index].id;
 
@@ -54,17 +61,17 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
   }
 
   return (
-    <div className="container-fluid">
-      <h3 className="text-secondary mt-2">Pendaftaran</h3>
-      <p>DataTables is a third-party plugin used to generate the demo table below. For more information about DataTables, please visit the official DataTables documentation.</p>
+    <div className="container-fluid text-fredoka">
+      <h2 className="warna-1 mt-3 text-center">Pendaftaran</h2>
+      <p className="text-center">Dibawah ini adalah informasi siswa/i yang terdaftar di Pena Cemerlang.</p>
       <div className="card shadow mb-4">
         <div className="card-header">
-          <button className="btn btn-primary">
+          <button className="button-tambah">
             <Link className="m-0 nav-link fw-bold" to="/add-pendaftaran">+ Tambahkan</Link>
           </button>
         </div>
         <div className="card-body">
-          <div className="table-responsive-sm">
+          <div className="table-responsive">
             <table className="table table-striped small">
               <thead>
                 <tr className="text-center">
@@ -75,7 +82,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                   <th>Alamat</th>
                   <th>Usia</th>
                   <th>Kelas</th>
-                  <th>Program Bimbel</th>
+                  <th>Program Kelas Bimbel</th>
                   <th>No Handphone</th>
                   <th>Action</th>
                 </tr>
@@ -84,8 +91,8 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                 {pendaftarans && pendaftarans.length > 0 ? (
                   pendaftarans.map((pendaftaran, index) => (
                     <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>
+                      <td className="text-center">{index + 1}</td>
+                      <td className="text-center">
                         {editIndex === index ? (
                           <input
                             type="text"
@@ -102,7 +109,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                           pendaftaran.namaLengkap
                         )}
                       </td>
-                      <td>
+                      <td className="text-center">
                         {editIndex === index ? (
                           <input
                             type="text"
@@ -119,7 +126,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                           pendaftaran.jenisKelamin
                         )}
                       </td>
-                      <td>
+                      <td className="text-center">
                         {editIndex === index ? (
                           <input
                             type="text"
@@ -136,7 +143,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                           pendaftaran.namaOrangTua
                         )}
                       </td>
-                      <td>
+                      <td className="text-center">
                         {editIndex === index ? (
                           <input
                             type="text"
@@ -153,7 +160,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                           pendaftaran.alamatRumah
                         )}
                       </td>
-                      <td>
+                      <td className="text-center">
                         {editIndex === index ? (
                           <input
                             type="text"
@@ -170,7 +177,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                           pendaftaran.usia
                         )}
                       </td>
-                      <td>
+                      <td className="text-center">
                         {editIndex === index ? (
                           <input
                             type="text"
@@ -187,7 +194,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                           pendaftaran.kelas
                         )}
                       </td>
-                      <td>
+                      <td className="text-center">
                         {editIndex === index ? (
                           <input
                             type="text"
@@ -201,10 +208,10 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                             }}
                           />
                         ) : (
-                          pendaftaran.kelas
+                          pendaftaran.programBimbelKelas
                         )}
                       </td>
-                      <td>
+                      <td className="text-center">
                         {editIndex === index ? (
                           <input
                             type="text"
@@ -221,19 +228,31 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                           pendaftaran.handphone
                         )}
                       </td>
-                      <td>
+                      <td className="d-flex text-center">
+                        <button className="btn btn-info btn-sm m-1" title="Detail">
+                          <Link className="nav-link" to={`/pendaftaran/${pendaftaran.namaLengkap}`} state={pendaftaran}>
+                            <img src={ImageDetail} alt="detail" />
+                          </Link>
+                        </button>
                         {editIndex === index ? (
                           <>
-                            <button className="btn btn-success" onClick={() => handleUpdate(index)}>Save</button>
-                            <button className="btn btn-warning" onClick={() => setEditIndex(-1)}>Cancel</button>
+                            <button className="btn btn-success btn-sm m-1" title="Simpan" onClick={() => handleUpdate(index)}>
+                             <img src={ImageSave} alt="save" />
+                            </button>
+                            <button className="btn btn-secondary btn-sm m-1" title="Kembali" onClick={() => setEditIndex(-1)}>
+                              <img src={ImageX} alt="cancel" />
+                            </button>
                           </>
                         ) : (
                           <>
-                            <button className="btn btn-warning" onClick={() => setEditIndex(index)}>Edit</button>
-                            <button className="btn btn-danger" onClick={() => handleDelete(index)}>Delete</button>
+                            <button className="btn btn-warning btn-sm m-1" title="Edit" onClick={() => setEditIndex(index)}>
+                              <img src={ImageEdit} alt="edit" />
+                            </button>
+                            <button className="btn btn-danger btn-sm m-1" title="Hapus" onClick={() => handleDelete(index)}>
+                              <img src={ImageDelete} alt="delete" />
+                            </button>
                           </>
                         )}
-                        <button className="btn btn-primary">DETAIL</button>
                       </td>
                     </tr>
                   ))

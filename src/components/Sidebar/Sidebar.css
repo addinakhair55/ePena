@@ -1,9 +1,55 @@
-
-.sidebar-heading{
-  /* text-transform:uppercase; */
-  text-align:left;
-  padding:0 1rem;
-  font-weight:800;
-  font-size:.65rem
-
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  /* height: auto; */
 }
+
+.sidebar {
+  background-color: #BCBCBC;
+  width: 220px;
+  padding: 20px;
+  height: 220vh;
+}
+
+main {
+  flex: 1;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.content {
+  display: flex;
+}
+
+  @font-face {
+    font-family: 'Fredoka One';
+    src: url('../Font/Fredoka_Condensed-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+  .text-fredoka {
+    font-family: 'Fredoka One', sans-serif;
+  }
+
+  .link-dash{
+    color: #002347;
+    text-decoration: none;
+  }
+  .link-dash:hover{
+    color: #FF8A00;
+  }
+
+  .text-form{
+    color: #FF8A00;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: bold;
+  }

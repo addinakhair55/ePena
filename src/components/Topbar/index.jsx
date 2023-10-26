@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
+import "./Topbar.css"
 
 function Topbar() {
     return(
       <>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbar navbar-expand-lg bg-light text-fredoka">
             <div className="container-fluid justify-content-end mx-3">
-            <div className="btn-group dropstart">
-                <Link className="navbar nav-link text-warning fw-bold" to="/">Logout</Link>
-            </div>
+              <Link className="navbar fw-bold top-link" to="/login">KELUAR</Link>
             </div>
         </nav>
       </>

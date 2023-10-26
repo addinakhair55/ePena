@@ -1,161 +1,91 @@
+import Fepena from "../image/footer.png"
+import Email from "../image/img-email.png"
+import Wa from "../image/img-wa.png"
+import Maps from "../image/img-maps.png"
+import Insta from "../image/instagram.svg"
+import YouT from "../image/youtube.svg"
+import Linkedin from "../image/linkedin.svg"
+import "./Footer.css"
+
+import { Link } from "react-router-dom"
+
 function Footer() {
     return(
-        <>
+        <div className="bg-biru text-fredoka">
             <footer className="container py-5">
                 <div className="row">
-                    <div className="col-6 col-md-2">
-                    <h5 className="fw-bold color">ARSHA</h5>
+                    <div className="col-5">
+                        <img src={Fepena} alt="" />
+                        <ul className="nav flex-column">
+                            <li className="nav-item mb-2">
+                                <p href="#" className="nav-link p-0 text-light">
+                                    @2023 ePena by Addina Khairinisa
+                                </p>
+                            </li>
+                            <div className="icon-container">
+                                <div className="icon">
+                                    <Link to="https://www.instagram.com/addina.ak">
+                                        <img src={Insta} alt="instagram" className="mx-2"/>
+                                    </Link>
+                                </div>
+                                <div className="icon">
+                                    <Link to="https://www.youtube.com/channel/UCT8NjwWRrEqlWe0Iag8fdKg">
+                                        <img src={YouT} alt="youtube" className="mx-2"/>
+                                    </Link>
+                                </div>
+                                <div className="icon">
+                                    <Link to="https://www.linkedin.com/in/addinakhair/">
+                                        <img src={Linkedin} alt="linkedin" className="mx-2"/>
+                                    </Link>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+
+                    <div className="col-md-4 offset-lg-0 offset-md-1">
+                    <h5 className="text-light">Our Services</h5>
                     <ul className="nav flex-column">
                         <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            A108 Adam Street
-                        </a>
+                            <Link className="link-footer">
+                                Pra-SD
+                            </Link>
                         </li>
                         <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            New York, NY 545022
-                        </a>
+                            <Link className="link-footer">
+                                SD
+                            </Link>
                         </li>
                         <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            United States
-                        </a>
-                        </li>
-                        <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            <strong>Phone :</strong> +123 456
-                        </a>
-                        </li>
-                        <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            <strong>Email :</strong> @example.com
-                        </a>
+                            <Link className="link-footer">
+                                Privat
+                            </Link>
                         </li>
                     </ul>
                     </div>
-                    <div className="col-lg-3 col-md-1 offset-md-1 py-lg-0 py-4">
-                    <h5 className="color">Useful Links</h5>
-                    <ul className="nav flex-column">
-                        <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            Home
-                        </a>
-                        </li>
-                        <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            Features
-                        </a>
-                        </li>
-                        <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            Pricing
-                        </a>
-                        </li>
-                        <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            FAQs
-                        </a>
-                        </li>
-                        <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            About
-                        </a>
-                        </li>
-                    </ul>
+                    <div className="col-lg-3 col-md-4">
+                    <div>
+                        <h5 className="text-light">Our Social Networks</h5>
+                        <ul className="list-unstyled">
+                            <li>
+                                <li className="d-flex">
+                                    <img src={Email} alt="email" style={{width: 16, height: 24}} />
+                                    <Link className="link-footer px-2">epena.cemerlang@gmail.com</Link>
+                                </li>
+                                <li className="d-flex mt-2">
+                                    <img src={Wa} alt="whatsapp" style={{width: 16, height: 24}} />
+                                    <Link className="link-footer px-2">+62 812 3456 7890</Link>
+                                </li>
+                                <li className="d-flex mt-2">
+                                    <img src={Maps} alt="maps" style={{width: 16, height: 24}} />
+                                    <Link className="link-footer px-2">Jl. Thamrin Sudirman, DKI Jakarta, Indonesia</Link>
+                                </li>
+                            </li>
+                        </ul>
                     </div>
-                    <div className="col-md-3 col-lg-0 offset-lg-0 offset-md-1">
-                    <h5 className="color">Our Services</h5>
-                    <ul className="nav flex-column">
-                        <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            Web Design
-                        </a>
-                        </li>
-                        <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            Web Development
-                        </a>
-                        </li>
-                        <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            Product Management
-                        </a>
-                        </li>
-                        <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            Marketing
-                        </a>
-                        </li>
-                        <li className="nav-item mb-2">
-                        <a href="#" className="nav-link p-0 text-body-secondary">
-                            Graphic Design
-                        </a>
-                        </li>
-                    </ul>
-                    </div>
-                    <div className="col-lg-3 col-md-4 py-md-0 py-4">
-                    <form>
-                        <h5 className="color">Our Social Networks</h5>
-                        <p>
-                        Cras fermentum odio eu feugiat lide par naso tierra videa magna derita
-                        valies
-                        </p>
-                        <div className="d-flex flex-column flex-sm-row w-100 gap-2">
-                        <div className="icon-container">
-                            <div className="icon">
-                            <a
-                                href="https://mail.google.com/"
-                                className="bi bi-envelope-at icon-logo"
-                            />
-                            </div>
-                            <div className="icon">
-                            <a
-                                href="https://www.linkedin.com/"
-                                className="bi bi-linkedin icon-logo"
-                            />
-                            </div>
-                            <div className="icon">
-                            <a
-                                href="https://twitter.com/"
-                                className="bi bi-twitter icon-logo"
-                            />
-                            </div>
-                            <div className="icon">
-                            <a
-                                href="https://www.instagram.com/"
-                                className="bi bi-instagram icon-logo"
-                            />
-                            </div>
-                            <div className="icon">
-                            <a
-                                href="https://id-id.facebook.com/"
-                                className="bi bi-facebook icon-logo"
-                            />
-                            </div>
-                        </div>
-                        </div>
-                    </form>
                     </div>
                 </div>
             </footer>
-
-            <div className="bg-dark">
-            <div className="container">
-                <footer className="d-flex flex-wrap justify-content-between py-3 my-4">
-                <div className="col-md-4 d-flex">
-                    <span className="mb-3 mb-md-0 text-light">© 2023 Company, Inc</span>
-                </div>
-                <div className="nav justify-content-between list-unstyled">
-                    <p>Designed By </p>
-                    <a className="text-info" href="#">
-                    {" "}
-                    BootstrapMade
-                    </a>
-                </div>
-                </footer>
-            </div>
-            </div>
-        </>
+        </div>
     )
 }
 

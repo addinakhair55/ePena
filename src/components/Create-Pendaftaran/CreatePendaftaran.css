@@ -2,12 +2,10 @@
 .is-invalid {
     border-color: #dc3545 !important; /* Warna border merah */
   }
-  
-  /* Gaya pesan kesalahan */
-  .invalid-feedback {
-    color: #dc3545; /* Warna teks merah */
-    font-size: 14px; /* Ukuran font pesan kesalahan */
-  }
+
+.is-valid {
+    border-color: #44ab00 !important; /* Warna border merah */
+} 
 
   .loader {
     width: 40px;
@@ -45,15 +43,29 @@
       100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
   }
 
+   .button-submit{
+    background-color: #002347;
+    justify-content: center;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    padding: 12px;
+    display: inline-flex;
+    margin: 3px;
+    cursor: pointer;
+  }
 
-  .input {
-    border: 2px solid;
-    border-radius: 10px;
-    padding: 10px 25px;
-    background: transparent;
-   }
-   
-   .input:active {
-    box-shadow: 2px 2px 15px #07a0ff inset;
-   }
+  .button-submit:hover {
+      background-color: #FF8A00;
+      color: white;
+  }
+
+  .link-headd{
+    color: #FF8A00;
+    text-decoration: none;
+  }
+  
+  .link-headd:hover {
+    color: #002347;
+  }
    

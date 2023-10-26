@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Fredoka One';
+    src: url('../Font/Fredoka_Condensed-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+  .text-fredoka {
+    font-family: 'Fredoka One', sans-serif;
+  }
+
+  .top-link{
+    color: #FF8A00;
+    text-decoration: none;
+  }
+
+  .top-link:hover{
+    color: #002347;
+  }

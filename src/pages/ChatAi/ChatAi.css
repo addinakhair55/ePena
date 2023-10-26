@@ -1,0 +1,36 @@
+.chat-input {
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 10px 25px;
+    background: transparent;
+}
+   
+.chat-input:active {
+    box-shadow: 2px 2px 15px #FF8A00 inset;
+}
+
+.button-chat{
+    background-color: #FF8A00;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.button-chat:hover {
+    background-color: #002347;
+    color: white;
+}
+
+@font-face {
+    font-family: 'Fredoka One';
+    src: url('../Font/Fredoka_Condensed-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+  .text-fredoka {
+    font-family: 'Fredoka One', sans-serif;
+  }

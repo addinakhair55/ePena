@@ -2,7 +2,6 @@ import CreatePendaftaran from "../../components/Create-Pendaftaran"
 import Sidebar from "../../components/Sidebar"
 import Topbar from "../../components/Topbar"
 import { addPendaftaran } from "../../pendaftaranSlice";
-import "../Pendaftaran/Pendaftaran.css"
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 

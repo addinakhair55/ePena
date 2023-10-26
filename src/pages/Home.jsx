@@ -1,4 +1,6 @@
+import Footer from "../components/Footer";
 import LandingPage from "../components/LandingPage";
+import Navbar from "../components/Navbar";
 
 function Main() {
     return(
@@ -10,7 +12,9 @@ function Main() {
 function Home() {
     return(
         <div>
-            <Main />
+            <Navbar/>
+                <Main />
+            <Footer/>
         </div>
     )
 }

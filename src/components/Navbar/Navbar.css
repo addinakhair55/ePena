@@ -1,0 +1,47 @@
+.bg-warna{
+    color: #F5F5F5;
+}
+
+.buttonnn{
+    background-color: #002347;
+    border-radius: 5px;
+    height: 40px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.button3:hover {
+    background-color: #FF8A00;
+    color: white;
+}
+
+
+.link{
+    color: #002347;
+    text-decoration: none;
+}
+
+.link1:hover {
+    color: #FF8A00;
+}
+
+.linkk{
+    color: #FF8A00;
+    text-decoration: none;
+}
+
+.link2:hover {
+    color: #002347;
+}
+
+@font-face {
+    font-family: 'Fredoka One';
+    src: url('../Font/Fredoka_Condensed-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.text-fredoka {
+    font-family: 'Fredoka One', sans-serif;
+}

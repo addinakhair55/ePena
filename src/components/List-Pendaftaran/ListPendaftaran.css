@@ -1,0 +1,30 @@
+.warna-table{
+    color: #D9D9D9;
+}
+
+@font-face {
+    font-family: 'Fredoka One';
+    src: url('../Font/Fredoka_Condensed-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.text-fredoka {
+  font-family: 'Fredoka One', sans-serif;
+}
+
+.button-tambah{
+  background-color: #002347;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 9px 10px;
+  display: inline-flex;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.button-tambah:hover {
+  background-color: #FF8A00;
+  color: white;
+}
