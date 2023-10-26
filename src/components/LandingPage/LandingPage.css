@@ -1,55 +1,69 @@
-.color{
-    color: #37517E !important;
+@font-face {
+    font-family: 'Fredoka One';
+    src: url('../Font/Fredoka_Condensed-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.backg-color{
-    background-color: #37517E !important;
+  .text-fredoka {
+    font-family: 'Fredoka One', sans-serif;
+  }
+
+.warna-1{
+    color: #FF8A00;
 }
 
-.text-style{
-    font-family: "Jost" !important;
+.warna-2{
+    color: #002347;
 }
 
-.text{
-    font-family: "Roboto" !important;
+.link-daftar{
+    color: #ffffff;
+    text-decoration: none;
 }
 
-.icon-logo:nth-child(1){
-    padding: 5px 10px !important;
-    color: #fff !important;
-    position: absolute !important;
+.button{
+    background-color: #FF8A00;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 13px;
+    display: inline-flex;
+    margin: 5px;
+    cursor: pointer;
 }
 
-.icon-logo:hover{
-    color: #00eaff !important;
+.button1:hover {
+    background-color: #002347;
+    color: white;
+}
+
+.buttonn{
+    background-color: #002347;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 13px;
+    display: inline-flex;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.button2:hover {
+    background-color: #FF8A00;
+    color: white;
 }
 
 .input {
     margin-top: 1rem !important;
   }
   
-  .input::file-selector-button {
-    font-weight: bold !important;
-    color: #fff !important;
-    padding: 0.5em !important;
-    background-color: #0D6EFD !important;
-    border-radius: 3px !important;
-  }
-
-.icon{
-    width: 43px !important;
-    height: 43px !important;
-    background-color: #3498db !important;
-    border-radius: 50px !important;
-    justify-content: center !important;
-    align-items: center !important;
-    font-size: 22px !important;
-    margin: 0 0.2rem !important;
-}
-
-.icon-container{
-    display: flex !important;
-    flex-direction: row !important;
+.input::file-selector-button {
+  font-weight: bold !important;
+  color: #fff !important;
+  padding: 0.5em !important;
+  background-color: #0D6EFD !important;
+  border-radius: 3px !important;
 }
 
 .error-icon::before {
@@ -67,4 +81,15 @@
     color: #dc3545 !important; /* Ubah warna teks pesan kesalahan */
     font-size: 14px !important; /* Ubah ukuran teks pesan kesalahan sesuai kebutuhan */
   }
-  
+
+  .hero{
+    background-image: url("../image/hero.png");
+  }
+
+  .link-program{
+    color: #FF8A00;
+    text-decoration: none;
+  }
+  .link-program:hover{
+    color: #002347;
+  }

@@ -1,7 +1,6 @@
 import Sidebar from "../../components/Sidebar";
 import ListPendaftaran from "../../components/List-Pendaftaran";
 import Topbar from "../../components/Topbar";
-import "./pendaftaran.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -15,6 +14,7 @@ function Pendaftaran() {
     getPendaftaran();
   }, []);
 
+  // GET || TAMPILAN
   async function getPendaftaran() {
     try {
       const response = await axios.get('https://651e38bb44a3a8aa4767e444.mockapi.io/pendaftaran');
