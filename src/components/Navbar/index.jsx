@@ -8,6 +8,17 @@ function Navbar() {
             <nav className="navbar navbar-expand-lg bg-body bg-warna fixed-top text-fredoka">
                 <div className="container-fluid">
                     <img src={Logo} alt="" />
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon" />
+                    </button>
                     <div
                         className="collapse navbar-collapse justify-content-end"
                         id="navbarSupportedContent"
@@ -15,7 +26,7 @@ function Navbar() {
                     <ul className="nav navbar-nav" role="tablist">
                         <li className="nav-item pe-2" role="presentation">
                             <Link
-                                className="navbar link link1"
+                                className="navbar link link1 mx-2"
                                 to="/"
                             >
                                 Home

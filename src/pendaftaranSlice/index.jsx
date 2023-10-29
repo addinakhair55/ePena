@@ -11,9 +11,17 @@ const pendaftaranSlice = createSlice({
     addPendaftaran: (state, action) => {
       state.pendaftarans.push(action.payload);
     },
+    editPendaftaran: (state, action) => {
+      const { index, updatedPendaftaran } = action.payload;
+      state.pendaftarans[index] = updatedPendaftaran;
+    },
+    deletePendaftaran: (state, action) => {
+      const index = action.payload;
+      state.pendaftarans.splice(index, 1);
+    },
   },
 });
 
-export const { addPendaftaran } = pendaftaranSlice.actions;
+export const { addPendaftaran, editPendaftaran, deletePendaftaran } = pendaftaranSlice.actions;
 
 export default pendaftaranSlice.reducer;

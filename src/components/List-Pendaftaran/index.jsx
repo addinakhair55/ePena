@@ -1,22 +1,44 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import ImageDetail from '../image/detail.svg';
+import ImageEdit from '../image/pencil-square.svg';
+import ImageDelete from '../image/trash.svg';
+import ImageSave from '../image/floppy.svg';
+import ImageX from '../image/x.svg';
 import axios from 'axios';
-import ImageDetail from "../image/detail.svg"
-import ImageEdit from "../image/pencil-square.svg"
-import ImageDelete from "../image/trash.svg"
-import ImageSave from "../image/floppy.svg"
-import ImageX from "../image/x.svg"
-import "./ListPendaftaran.css"
+import { Link } from 'react-router-dom';
+import { editPendaftaran, deletePendaftaran } from '../../pendaftaranSlice';
+import { useDispatch } from 'react-redux';
+
+import './ListPendaftaran.css';
 
 function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
+  const dispatch = useDispatch();
   const [editFormData, setEditFormData] = useState({});
   const [editIndex, setEditIndex] = useState(-1);
 
-  // PUT | UPDATE
-  async function handleUpdate(index) {
+  const loadData = async () => {
+    try {
+      const response = await axios.get('https://651e38bb44a3a8aa4767e444.mockapi.io/pendaftaran');
+      if (response.status === 200) {
+        updatePendaftaran(response.data);
+      } else {
+        console.error('Permintaan API berhasil, tetapi status respons bukan 200:', response.status);
+      }
+    } catch (error) {
+      console.error('Terjadi kesalahan saat memuat data:', error);
+    }
+  };
+
+  useEffect(() => {
+    loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // PUT || UPDATE
+  const handleUpdate = async (index) => {
     try {
       const pendaftaranToUpdate = editFormData[index];
-  
+
       if (!pendaftaranToUpdate) {
         console.error('Edit form data not found for the given index:', index);
         return;
@@ -26,39 +48,48 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
         console.error('Invalid data for the given index:', index);
         return;
       }
-  
+
       const pendaftaranId = pendaftarans[index].id;
       const response = await axios.put(`https://651e38bb44a3a8aa4767e444.mockapi.io/pendaftaran/${pendaftaranId}`, pendaftaranToUpdate);
-  
+
       if (response.status === 200) {
-        console.log('Pendaftaran updated successfully!');
+        alert('Pendaftaran updated successfully!');
+        dispatch(editPendaftaran({ index, updatedPendaftaran: pendaftaranToUpdate }));
         setEditIndex(-1);
+
+        loadData();
       } else {
         console.error('API request was successful, but the response status is not 200:', response.status);
       }
     } catch (error) {
       console.error('An error occurred while updating data:', error);
     }
-  }
+  };
 
   // DELETE || HAPUS
-  async function handleDelete(index) {
+  const handleDelete = async (index) => {
     const pendaftaranId = pendaftarans[index].id;
+  
+    // Menampilkan konfirmasi dialog sebelum menghapus
+    const confirmDelete = window.confirm("Apakah Anda yakin ingin menghapus data pendaftaran ini?");
+    
+    if (confirmDelete) {
+      try {
+        const response = await axios.delete(`https://651e38bb44a3a8aa4767e444.mockapi.io/pendaftaran/${pendaftaranId}`);
+    
+        if (response.status === 200) {
+          alert('Data pendaftaran tersebut berhasil dihapus!');
+          dispatch(deletePendaftaran(index));
 
-    try {
-      const response = await axios.delete(`https://651e38bb44a3a8aa4767e444.mockapi.io/pendaftaran/${pendaftaranId}`);
-
-      if (response.status === 200) {
-        console.log('Pendaftaran berhasil dihapus!');
-        const updatedPendaftarans = pendaftarans.filter((_, i) => i !== index);
-        updatePendaftaran(updatedPendaftarans);
-      } else {
-        console.error('Permintaan API berhasil, tetapi status respons bukan 200:', response.status);
+          loadData();
+        } else {
+          console.error('Permintaan API berhasil, tetapi status respons bukan 200:', response.status);
+        }
+      } catch (error) {
+        console.error('Terjadi kesalahan saat menghapus data:', error);
       }
-    } catch (error) {
-      console.error('Terjadi kesalahan saat menghapus data:', error);
     }
-  }
+  };
 
   return (
     <div className="container-fluid text-fredoka">
@@ -67,7 +98,9 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
       <div className="card shadow mb-4">
         <div className="card-header">
           <button className="button-tambah">
-            <Link className="m-0 nav-link fw-bold" to="/add-pendaftaran">+ Tambahkan</Link>
+            <Link className="m-0 nav-link fw-bold" to="/add-pendaftaran">
+              + Tambahkan
+            </Link>
           </button>
         </div>
         <div className="card-body">
@@ -237,7 +270,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                         {editIndex === index ? (
                           <>
                             <button className="btn btn-success btn-sm m-1" title="Simpan" onClick={() => handleUpdate(index)}>
-                             <img src={ImageSave} alt="save" />
+                              <img src={ImageSave} alt="save" />
                             </button>
                             <button className="btn btn-secondary btn-sm m-1" title="Kembali" onClick={() => setEditIndex(-1)}>
                               <img src={ImageX} alt="cancel" />
@@ -256,11 +289,11 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                       </td>
                     </tr>
                   ))
-                ) : 
+                ) : (
                   <tr>
                     <td colSpan="8">No pendaftarans available.</td>
                   </tr>
-                }
+                )}
               </tbody>
             </table>
           </div>

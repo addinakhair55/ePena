@@ -22,23 +22,23 @@ function Footer() {
                                     @2023 ePena by Addina Khairinisa
                                 </p>
                             </li>
-                            <div className="icon-container">
-                                <div className="icon">
+                            <ul className="icon-container">
+                                <li className="icon">
                                     <Link to="https://www.instagram.com/addina.ak">
                                         <img src={Insta} alt="instagram" className="mx-2"/>
                                     </Link>
-                                </div>
-                                <div className="icon">
+                                </li>
+                                <li className="icon">
                                     <Link to="https://www.youtube.com/channel/UCT8NjwWRrEqlWe0Iag8fdKg">
                                         <img src={YouT} alt="youtube" className="mx-2"/>
                                     </Link>
-                                </div>
-                                <div className="icon">
+                                </li>
+                                <li className="icon">
                                     <Link to="https://www.linkedin.com/in/addinakhair/">
                                         <img src={Linkedin} alt="linkedin" className="mx-2"/>
                                     </Link>
-                                </div>
-                            </div>
+                                </li>
+                            </ul>
                         </ul>
                     </div>
 
@@ -62,6 +62,7 @@ function Footer() {
                         </li>
                     </ul>
                     </div>
+                    
                     <div className="col-lg-3 col-md-4">
                     <div>
                         <h5 className="text-light">Our Social Networks</h5>
