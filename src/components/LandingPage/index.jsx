@@ -19,12 +19,12 @@ function LandingPage() {
                     Bimbingan Belajar Tatap Muka Terbaik untuk Pra-SD dan SD
                     </p>
                     <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" className="button button1 btn-lg px-4 gap-3">
-                        <Link className="link-daftar" to="/dashboard">DAFTAR SEKARANG</Link>
-                    </button>
-                    <button type="button" className="buttonn button2 btn-lg px-4">
-                    <Link className="link-daftar" to="/dashboard">PROGRAM KELAS</Link>
-                    </button>
+                        <Link to="/dashboard" className="button button1 btn-lg px-4 gap-3 link-daftar">
+                            DAFTAR SEKARANG
+                        </Link>
+                        <Link to="/dashboard" className="buttonn button2 btn-lg px-4 link-daftar">
+                            PROGRAM KELAS
+                        </Link>
                     </div>
                 </div>
                 </div>
@@ -79,7 +79,7 @@ function LandingPage() {
                                     Program ini dibuat untuk siswa/i yang ingin mempersiapkan simulasi belajar dan menuju SD favorit.
                                 </p>
                                 <div className="d-flex justify-content-center align-items-center">
-                                    <Link className="link-program" to="/dashboard">
+                                    <Link to="/dashboard" className="link-program">
                                         Daftar Sekarang
                                     </Link>
                                 </div>
@@ -102,7 +102,7 @@ function LandingPage() {
                                         Program ini dibuat untuk siswa/i SD yang ingin meningkatkan pembelajaran dasar, serta peningkatan keterampilan siswa.
                                 </p>
                                 <div className="d-flex justify-content-center align-items-center">
-                                    <Link className="link-program" to="/dashboard">
+                                    <Link to="/dashboard" className="link-program">
                                         Daftar Sekarang
                                     </Link>
                                 </div>
@@ -125,7 +125,7 @@ function LandingPage() {
                                         Program ini menyediakan pengajaran individu atau kelompok kecil yang disesuaikan dengan kebutuhan siswa/i.
                                     </p>
                                     <div className="d-flex justify-content-center align-items-center">
-                                        <Link className="link-program" to="/dashboard">
+                                        <Link to="/dashboard" className="link-program">
                                             Daftar Sekarang
                                         </Link>
                                     </div>
