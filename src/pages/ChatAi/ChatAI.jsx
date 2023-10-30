@@ -10,7 +10,7 @@ function ChatAi() {
     const [loading, setLoading] = useState(false);
 
     const openai = new OpenAI({
-        apiKey: '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',
+        apiKey: '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',
         dangerouslyAllowBrowser: true,
     })
 
