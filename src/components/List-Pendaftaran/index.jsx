@@ -15,6 +15,7 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
   const dispatch = useDispatch();
   const [editFormData, setEditFormData] = useState({});
   const [editIndex, setEditIndex] = useState(-1);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const loadData = async () => {
     try {
@@ -70,7 +71,6 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
   const handleDelete = async (index) => {
     const pendaftaranId = pendaftarans[index].id;
   
-    // Menampilkan konfirmasi dialog sebelum menghapus
     const confirmDelete = window.confirm("Apakah Anda yakin ingin menghapus data pendaftaran ini?");
     
     if (confirmDelete) {
@@ -91,18 +91,49 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
     }
   };
 
+  // SEARCH
+  const filteredPendaftarans = pendaftarans.filter((pendaftaran) => {
+    const searchFields = [
+      pendaftaran.namaLengkap,
+      pendaftaran.jenisKelamin,
+      pendaftaran.namaOrangTua,
+      pendaftaran.alamatRumah,
+      pendaftaran.usia,
+      pendaftaran.kelas,
+      pendaftaran.programBimbelKelas,
+      pendaftaran.handphone,
+    ];
+  
+    return searchFields.some((field) =>
+      field.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+
   return (
     <div className="container-fluid text-fredoka">
       <h2 className="warna-1 mt-3 text-center">Pendaftaran</h2>
       <p className="text-center">Dibawah ini adalah informasi siswa/i yang terdaftar di Pena Cemerlang.</p>
       <div className="card shadow mb-4">
-        <div className="card-header">
+      <div className="card-header d-flex justify-content-between align-items-center">
+        <div>
           <button className="button-tambah">
             <Link className="m-0 nav-link fw-bold" to="/add-pendaftaran">
               + Tambahkan
             </Link>
           </button>
         </div>
+        <div className="search-input">
+          <form role="search">
+            <input
+              type="text"
+              placeholder="Search Pendaftaran"
+              className="form-control"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </form>
+        </div>
+      </div>
         <div className="card-body">
           <div className="table-responsive">
             <table className="table table-striped small">
@@ -121,8 +152,8 @@ function ListPendaftaran({ pendaftarans, updatePendaftaran }) {
                 </tr>
               </thead>
               <tbody>
-                {pendaftarans && pendaftarans.length > 0 ? (
-                  pendaftarans.map((pendaftaran, index) => (
+                {filteredPendaftarans && filteredPendaftarans.length > 0 ? (
+                 filteredPendaftarans.map((pendaftaran, index) => (
                     <tr key={index}>
                       <td className="text-center">{index + 1}</td>
                       <td className="text-center">
