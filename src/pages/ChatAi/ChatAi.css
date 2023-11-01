@@ -34,3 +34,25 @@
   .text-fredoka {
     font-family: 'Fredoka One', sans-serif;
   }
+
+.body-chat{
+    margin: 5rem 2rem ;
+}
+
+
+@media(min-width: 768px){
+
+    .body-chat{
+        margin: 5rem 5rem ;
+    }
+
+}
+
+
+@media(min-width: 992px){
+
+    .body-chat{
+        margin: 21rem 5rem;
+    }
+
+}
