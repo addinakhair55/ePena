@@ -10,7 +10,7 @@ function ChatAi() {
     const [loading, setLoading] = useState(false);
 
     const openai = new OpenAI({
-        apiKey: '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',
+        apiKey: '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',
         dangerouslyAllowBrowser: true,
     })
 
@@ -19,7 +19,7 @@ function ChatAi() {
         setLoading(true);
 
         const res = await openai.completions.create({
-            prompt: `result the following command: ${command}`,
+            prompt: "Seputar pendaftaran murid baru program Pra-SD, SD, dan Privat di Pena Cemerlang." + command,
             model: "text-davinci-003",
         });
 
@@ -31,32 +31,32 @@ function ChatAi() {
     return (
         <>
             <Navbar/>
-            <div className="m-5 p-4 text-fredoka">
-                <h2 className="mb-3">Chat Bot AI For Q & A</h2>
-                <textarea
-                    name="command"
-                    id="command"
-                    value={command}
-                    onChange={(e) => setCommand(e.target.value)}
-                    placeholder="Ask a question..."
-                    className="input-group p-2 chat-input"
-                />
-                <button type="submit" className="mt-2 button-chat" onClick={(e) => handleSubmit(e)}>KIRIM</button>
+                <div className="text-fredoka body-chat">
+                    <h2 className="mb-3">Chat Bot AI For Q & A</h2>
+                    <textarea
+                        name="command"
+                        id="command"
+                        value={command}
+                        onChange={(e) => setCommand(e.target.value)}
+                        placeholder="Ask a question..."
+                        className="input-group p-2 chat-input"
+                    />
+                    <button type="submit" className="mt-2 button-chat" onClick={(e) => handleSubmit(e)}>KIRIM</button>
 
-                {
-                    loading && (
-                        <div className="loader"></div>
-                    )
-                }
+                    {
+                        loading && (
+                            <div className="loader"></div>
+                        )
+                    }
 
-                {
-                    result && (
-                        <div className="mt-2">
-                            <p>Answer: {result}</p>
-                        </div>
-                    )
-                }
-            </div>
+                    {
+                        result && (
+                            <div className="mt-2">
+                                <p>Answer: {result}</p>
+                            </div>
+                        )
+                    }
+                </div>
             <Footer/>
         </>
     )
